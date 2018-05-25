@@ -12,7 +12,7 @@ public class AccountData {
 	public AccountData(int account_id, String account_type, float balance) {
 		super();
 		this.account_id = account_id;
-		this.account_type = account_type;
+		this.account_type = (account_type.equals("S"))?"Savings Account":"Credit Account";
 		this.balance = balance;
 	}
 	public int getAccount_id() {
@@ -34,9 +34,9 @@ public class AccountData {
 		this.balance = balance;
 	}
 	
-public String printALL() {
+	public String printALL() {
 		
-		return this.getAccount_id() + "\t" + ((this.getAccount_type().equals("S"))?"Savings Account":"Credit Account") + "\t" +
+		return this.getAccount_id() + "\t" + this.getAccount_type() + "\t" +
 				this.getBalance() ;
 					
 	}

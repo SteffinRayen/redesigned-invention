@@ -19,6 +19,7 @@ public class TransactionUpdate {
 		ResultSet resultSet = null;
 		String sql = null;
 		TransactionData data = null;
+		java.sql.Date now = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		
 		try {
 			Class.forName(Authorization.JDBC_DRIVER);
@@ -37,7 +38,7 @@ public class TransactionUpdate {
 				data = new TransactionData(
 					SQLCountRows.findTotal("transaction")+3001,
 					account_id,
-					new java.sql.Date(Calendar.getInstance().getTime().getTime()),
+					now.toString(),
 					amount,
 					resultSet.getFloat("balance")+amount,
 					"Deposit "+amount
@@ -54,7 +55,7 @@ public class TransactionUpdate {
 					+ "("
 					+ "'" + data.getTransaction_id() + "',"
 					+ "'" + data.getAccount_id() + "',"
-					+ "'" + data.getDate() + "',"
+					+ "'" + now + "',"
 					+ "'" + data.getAmount() + "',"
 					+ "'" + data.getBalance() + "',"
 					+ "'" + data.getDescription() + "'"
@@ -85,6 +86,7 @@ public class TransactionUpdate {
 		TransactionData data = null;
 		float balance = 0;
 		String description;
+		java.sql.Date now = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		
 		try {
 			Class.forName(Authorization.JDBC_DRIVER);
@@ -112,7 +114,7 @@ public class TransactionUpdate {
 			data = new TransactionData(
 				SQLCountRows.findTotal("transaction")+3001,
 				account_id,
-				new java.sql.Date(Calendar.getInstance().getTime().getTime()),
+				now.toString(),
 				amount,
 				balance,
 				description
@@ -128,7 +130,7 @@ public class TransactionUpdate {
 					+ "("
 					+ "'" + data.getTransaction_id() + "',"
 					+ "'" + data.getAccount_id() + "',"
-					+ "'" + data.getDate() + "',"
+					+ "'" + now + "',"
 					+ "'" + data.getAmount() + "',"
 					+ "'" + data.getBalance() + "',"
 					+ "'" + data.getDescription() + "'"

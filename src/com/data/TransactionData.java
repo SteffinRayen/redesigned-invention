@@ -1,11 +1,9 @@
 package com.data;
 
-import java.sql.Date;
-
 public class TransactionData {
 	private int transaction_id;
 	private int account_id;
-	private Date date;
+	private String date;
 	private float amount;
 	private float balance;
 	private String description;
@@ -13,7 +11,7 @@ public class TransactionData {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TransactionData(int transaction_id, int account_id, Date date, float amount, float balance,
+	public TransactionData(int transaction_id, int account_id, String date, float amount, float balance,
 			String description) {
 		super();
 		this.transaction_id = transaction_id;
@@ -35,10 +33,10 @@ public class TransactionData {
 	public void setAccount_id(int account_id) {
 		this.account_id = account_id;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public float getAmount() {

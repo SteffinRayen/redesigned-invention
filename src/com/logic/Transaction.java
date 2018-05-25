@@ -33,7 +33,7 @@ public class Transaction {
 				data = new TransactionData(
 						resultSet.getInt("transaction_id"),
 						resultSet.getInt("account_id"),
-						resultSet.getDate("time_stamp"),
+						resultSet.getDate("time_stamp").toString(),
 						resultSet.getFloat("amount"),
 						resultSet.getFloat("balance"),
 						resultSet.getString("description")
@@ -84,7 +84,7 @@ public class Transaction {
 					data = new TransactionData(
 							resultSet.getInt("transaction_id"),
 							resultSet.getInt("account_id"),
-							resultSet.getDate("time_stamp"),
+							resultSet.getDate("time_stamp").toString(),
 							resultSet.getFloat("amount"),
 							resultSet.getFloat("balance"),
 							resultSet.getString("description")
