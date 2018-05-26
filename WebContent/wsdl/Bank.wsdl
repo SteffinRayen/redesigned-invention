@@ -5,35 +5,34 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://service.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://data.com"/>
-   <element name="getCustomerDataByID">
+   <element name="getTransactionDataByID">
     <complexType>
      <sequence>
-      <element name="customerID" type="xsd:int"/>
+      <element name="transactionID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getCustomerDataByIDResponse">
+   <element name="getTransactionDataByIDResponse">
     <complexType>
      <sequence>
-      <element name="getCustomerDataByIDReturn" type="tns1:CustomerData"/>
+      <element name="getTransactionDataByIDReturn" type="tns1:TransactionData"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getAllTransactionData">
-    <complexType/>
-   </element>
-   <element name="getAllTransactionDataResponse">
+   <element name="getAccountDataByID">
     <complexType>
      <sequence>
-      <element name="getAllTransactionDataReturn" type="tns1:TransactionArray"/>
+      <element name="accountID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <complexType name="ArrayOf_tns1_TransactionData">
-    <sequence>
-     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:TransactionData"/>
-    </sequence>
-   </complexType>
+   <element name="getAccountDataByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountDataByIDReturn" type="tns1:AccountData"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="getAllAccountData">
     <complexType/>
    </element>
@@ -49,17 +48,32 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:AccountData"/>
     </sequence>
    </complexType>
-   <element name="getTransactionDataByID">
+   <element name="getAllTransactionData">
+    <complexType/>
+   </element>
+   <element name="getAllTransactionDataResponse">
     <complexType>
      <sequence>
-      <element name="transactionID" type="xsd:int"/>
+      <element name="getAllTransactionDataReturn" type="tns1:TransactionArray"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getTransactionDataByIDResponse">
+   <complexType name="ArrayOf_tns1_TransactionData">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:TransactionData"/>
+    </sequence>
+   </complexType>
+   <element name="getCustomerDataByID">
     <complexType>
      <sequence>
-      <element name="getTransactionDataByIDReturn" type="tns1:TransactionData"/>
+      <element name="customerID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByIDReturn" type="tns1:CustomerData"/>
      </sequence>
     </complexType>
    </element>
@@ -78,35 +92,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:CustomerData"/>
     </sequence>
    </complexType>
-   <element name="getAccountDataByID">
-    <complexType>
-     <sequence>
-      <element name="accountID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getAccountDataByIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getAccountDataByIDReturn" type="tns1:AccountData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="doDeposit">
-    <complexType>
-     <sequence>
-      <element name="accountID" type="xsd:int"/>
-      <element name="amount" type="xsd:float"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="doDepositResponse">
-    <complexType>
-     <sequence>
-      <element name="doDepositReturn" type="tns1:TransactionData"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="doWithdraw">
     <complexType>
      <sequence>
@@ -138,23 +123,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="doDeposit">
+    <complexType>
+     <sequence>
+      <element name="accountID" type="xsd:int"/>
+      <element name="amount" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="doDepositResponse">
+    <complexType>
+     <sequence>
+      <element name="doDepositReturn" type="tns1:TransactionData"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
   <schema elementFormDefault="qualified" targetNamespace="http://data.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://service.com"/>
-   <complexType name="CustomerData">
-    <sequence>
-     <element name="city" nillable="true" type="xsd:string"/>
-     <element name="customer_id" type="xsd:int"/>
-     <element name="email" nillable="true" type="xsd:string"/>
-     <element name="first_name" nillable="true" type="xsd:string"/>
-     <element name="last_name" nillable="true" type="xsd:string"/>
-     <element name="middle_name" nillable="true" type="xsd:string"/>
-     <element name="phone" nillable="true" type="xsd:string"/>
-     <element name="state" nillable="true" type="xsd:string"/>
-     <element name="street" nillable="true" type="xsd:string"/>
-     <element name="zip" nillable="true" type="xsd:string"/>
-    </sequence>
-   </complexType>
    <complexType name="TransactionData">
     <sequence>
      <element name="account_id" type="xsd:int"/>
@@ -163,11 +149,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element name="date" nillable="true" type="xsd:string"/>
      <element name="description" nillable="true" type="xsd:string"/>
      <element name="transaction_id" type="xsd:int"/>
-    </sequence>
-   </complexType>
-   <complexType name="TransactionArray">
-    <sequence>
-     <element name="transactionArray" nillable="true" type="impl:ArrayOf_tns1_TransactionData"/>
     </sequence>
    </complexType>
    <complexType name="AccountData">
@@ -180,6 +161,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <complexType name="AccountArray">
     <sequence>
      <element name="accountArray" nillable="true" type="impl:ArrayOf_tns1_AccountData"/>
+    </sequence>
+   </complexType>
+   <complexType name="TransactionArray">
+    <sequence>
+     <element name="transactionArray" nillable="true" type="impl:ArrayOf_tns1_TransactionData"/>
+    </sequence>
+   </complexType>
+   <complexType name="CustomerData">
+    <sequence>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="customer_id" type="xsd:int"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="first_name" nillable="true" type="xsd:string"/>
+     <element name="last_name" nillable="true" type="xsd:string"/>
+     <element name="middle_name" nillable="true" type="xsd:string"/>
+     <element name="phone" nillable="true" type="xsd:string"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="street" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
     </sequence>
    </complexType>
    <complexType name="CustomerArray">
@@ -318,14 +318,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getAllCustomerDataRequest">
-
-      <wsdl:part element="impl:getAllCustomerData" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="getAccountDataByIDRequest">
 
       <wsdl:part element="impl:getAccountDataByID" name="parameters">
@@ -334,43 +326,15 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getAllCustomerDataRequest">
+
+      <wsdl:part element="impl:getAllCustomerData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="Bank">
-
-      <wsdl:operation name="getCustomerDataByID">
-
-         <wsdl:input message="impl:getCustomerDataByIDRequest" name="getCustomerDataByIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByIDResponse" name="getCustomerDataByIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllTransactionData">
-
-         <wsdl:input message="impl:getAllTransactionDataRequest" name="getAllTransactionDataRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAllTransactionDataResponse" name="getAllTransactionDataResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllAccountData">
-
-         <wsdl:input message="impl:getAllAccountDataRequest" name="getAllAccountDataRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAllAccountDataResponse" name="getAllAccountDataResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name="getTransactionDataByID">
 
@@ -379,18 +343,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:getTransactionDataByIDResponse" name="getTransactionDataByIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllCustomerData">
-
-         <wsdl:input message="impl:getAllCustomerDataRequest" name="getAllCustomerDataRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAllCustomerDataResponse" name="getAllCustomerDataResponse">
 
        </wsdl:output>
 
@@ -408,13 +360,49 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="doDeposit">
+      <wsdl:operation name="getAllAccountData">
 
-         <wsdl:input message="impl:doDepositRequest" name="doDepositRequest">
+         <wsdl:input message="impl:getAllAccountDataRequest" name="getAllAccountDataRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:doDepositResponse" name="doDepositResponse">
+         <wsdl:output message="impl:getAllAccountDataResponse" name="getAllAccountDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllTransactionData">
+
+         <wsdl:input message="impl:getAllTransactionDataRequest" name="getAllTransactionDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllTransactionDataResponse" name="getAllTransactionDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByID">
+
+         <wsdl:input message="impl:getCustomerDataByIDRequest" name="getCustomerDataByIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByIDResponse" name="getCustomerDataByIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCustomerData">
+
+         <wsdl:input message="impl:getAllCustomerDataRequest" name="getAllCustomerDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllCustomerDataResponse" name="getAllCustomerDataResponse">
 
        </wsdl:output>
 
@@ -444,65 +432,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="doDeposit">
+
+         <wsdl:input message="impl:doDepositRequest" name="doDepositRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:doDepositResponse" name="doDepositResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="BankSoapBinding" type="impl:Bank">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="getCustomerDataByID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllTransactionData">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAllTransactionDataRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAllTransactionDataResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllAccountData">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAllAccountDataRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAllAccountDataResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name="getTransactionDataByID">
 
@@ -515,24 +461,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getTransactionDataByIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllCustomerData">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAllCustomerDataRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAllCustomerDataResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -558,17 +486,71 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="doDeposit">
+      <wsdl:operation name="getAllAccountData">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="doDepositRequest">
+         <wsdl:input name="getAllAccountDataRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="doDepositResponse">
+         <wsdl:output name="getAllAccountDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllTransactionData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllTransactionDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllTransactionDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCustomerData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllCustomerDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllCustomerDataResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -605,6 +587,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="fundsTransferResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doDeposit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="doDepositRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="doDepositResponse">
 
             <wsdlsoap:body use="literal"/>
 

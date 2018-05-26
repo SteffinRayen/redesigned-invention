@@ -20,24 +20,20 @@
       <parameter name="className" value="com.service.BankSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Bank"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="getCustomerDataByID" qname="operNS:getCustomerDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerData" xmlns:rtns="http://data.com" soapAction="" >
-        <parameter qname="pns:customerID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getAllTransactionData" qname="operNS:getAllTransactionData" xmlns:operNS="http://service.com" returnQName="retNS:getAllTransactionDataReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://data.com" soapAction="" >
-      </operation>
-      <operation name="getAllAccountData" qname="operNS:getAllAccountData" xmlns:operNS="http://service.com" returnQName="retNS:getAllAccountDataReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountArray" xmlns:rtns="http://data.com" soapAction="" >
-      </operation>
       <operation name="getTransactionDataByID" qname="operNS:getTransactionDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getTransactionDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://data.com" soapAction="" >
         <parameter qname="pns:transactionID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getAllCustomerData" qname="operNS:getAllCustomerData" xmlns:operNS="http://service.com" returnQName="retNS:getAllCustomerDataReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://data.com" soapAction="" >
       </operation>
       <operation name="getAccountDataByID" qname="operNS:getAccountDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountData" xmlns:rtns="http://data.com" soapAction="" >
         <parameter qname="pns:accountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="doDeposit" qname="operNS:doDeposit" xmlns:operNS="http://service.com" returnQName="retNS:doDepositReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://data.com" soapAction="" >
-        <parameter qname="pns:accountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="getAllAccountData" qname="operNS:getAllAccountData" xmlns:operNS="http://service.com" returnQName="retNS:getAllAccountDataReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountArray" xmlns:rtns="http://data.com" soapAction="" >
+      </operation>
+      <operation name="getAllTransactionData" qname="operNS:getAllTransactionData" xmlns:operNS="http://service.com" returnQName="retNS:getAllTransactionDataReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://data.com" soapAction="" >
+      </operation>
+      <operation name="getCustomerDataByID" qname="operNS:getCustomerDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerData" xmlns:rtns="http://data.com" soapAction="" >
+        <parameter qname="pns:customerID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAllCustomerData" qname="operNS:getAllCustomerData" xmlns:operNS="http://service.com" returnQName="retNS:getAllCustomerDataReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://data.com" soapAction="" >
       </operation>
       <operation name="doWithdraw" qname="operNS:doWithdraw" xmlns:operNS="http://service.com" returnQName="retNS:doWithdrawReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://data.com" soapAction="" >
         <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -48,7 +44,11 @@
         <parameter qname="pns:toAccountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="getAllAccountData fundsTransfer getAllTransactionData getCustomerDataByID getTransactionDataByID getAllCustomerData getAccountDataByID doDeposit doWithdraw"/>
+      <operation name="doDeposit" qname="operNS:doDeposit" xmlns:operNS="http://service.com" returnQName="retNS:doDepositReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://data.com" soapAction="" >
+        <parameter qname="pns:accountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getAllAccountData fundsTransfer getAllTransactionData getTransactionDataByID getCustomerDataByID getAllCustomerData getAccountDataByID doWithdraw doDeposit"/>
 
       <typeMapping
         xmlns:ns="http://data.com"

@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -29,32 +29,32 @@
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="Bank" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="getCustomerDataByID" qname="ns1:getCustomerDataByID" returnQName="ns1:getCustomerDataByIDReturn" returnType="ns2:CustomerData" soapAction="" xmlns:ns1="http://service.com" xmlns:ns2="http://data.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
-   <ns3:parameter qname="ns1:customerID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns3:operation name="getTransactionDataByID" qname="ns1:getTransactionDataByID" returnQName="ns1:getTransactionDataByIDReturn" returnType="ns2:TransactionData" soapAction="" xmlns:ns1="http://service.com" xmlns:ns2="http://data.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:transactionID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns3:operation>
-  <ns1:operation name="getAllTransactionData" qname="ns3:getAllTransactionData" returnQName="ns3:getAllTransactionDataReturn" returnType="ns4:TransactionArray" soapAction="" xmlns:ns3="http://service.com" xmlns:ns4="http://data.com"/>
+  <ns1:operation name="getAccountDataByID" qname="ns3:getAccountDataByID" returnQName="ns3:getAccountDataByIDReturn" returnType="ns4:AccountData" soapAction="" xmlns:ns3="http://service.com" xmlns:ns4="http://data.com">
+   <ns1:parameter qname="ns3:accountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
   <ns1:operation name="getAllAccountData" qname="ns5:getAllAccountData" returnQName="ns5:getAllAccountDataReturn" returnType="ns6:AccountArray" soapAction="" xmlns:ns5="http://service.com" xmlns:ns6="http://data.com"/>
-  <ns1:operation name="getTransactionDataByID" qname="ns7:getTransactionDataByID" returnQName="ns7:getTransactionDataByIDReturn" returnType="ns8:TransactionData" soapAction="" xmlns:ns7="http://service.com" xmlns:ns8="http://data.com">
-   <ns1:parameter qname="ns7:transactionID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getAllTransactionData" qname="ns7:getAllTransactionData" returnQName="ns7:getAllTransactionDataReturn" returnType="ns8:TransactionArray" soapAction="" xmlns:ns7="http://service.com" xmlns:ns8="http://data.com"/>
+  <ns1:operation name="getCustomerDataByID" qname="ns9:getCustomerDataByID" returnQName="ns9:getCustomerDataByIDReturn" returnType="ns10:CustomerData" soapAction="" xmlns:ns10="http://data.com" xmlns:ns9="http://service.com">
+   <ns1:parameter qname="ns9:customerID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="getAllCustomerData" qname="ns9:getAllCustomerData" returnQName="ns9:getAllCustomerDataReturn" returnType="ns10:CustomerArray" soapAction="" xmlns:ns10="http://data.com" xmlns:ns9="http://service.com"/>
-  <ns1:operation name="getAccountDataByID" qname="ns11:getAccountDataByID" returnQName="ns11:getAccountDataByIDReturn" returnType="ns12:AccountData" soapAction="" xmlns:ns11="http://service.com" xmlns:ns12="http://data.com">
-   <ns1:parameter qname="ns11:accountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns1:operation>
-  <ns1:operation name="doDeposit" qname="ns13:doDeposit" returnQName="ns13:doDepositReturn" returnType="ns14:TransactionData" soapAction="" xmlns:ns13="http://service.com" xmlns:ns14="http://data.com">
-   <ns1:parameter qname="ns13:accountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getAllCustomerData" qname="ns11:getAllCustomerData" returnQName="ns11:getAllCustomerDataReturn" returnType="ns12:CustomerArray" soapAction="" xmlns:ns11="http://service.com" xmlns:ns12="http://data.com"/>
+  <ns1:operation name="doWithdraw" qname="ns13:doWithdraw" returnQName="ns13:doWithdrawReturn" returnType="ns14:TransactionData" soapAction="" xmlns:ns13="http://service.com" xmlns:ns14="http://data.com">
+   <ns1:parameter qname="ns13:account_id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns13:amount" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="doWithdraw" qname="ns15:doWithdraw" returnQName="ns15:doWithdrawReturn" returnType="ns16:TransactionData" soapAction="" xmlns:ns15="http://service.com" xmlns:ns16="http://data.com">
-   <ns1:parameter qname="ns15:account_id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="fundsTransfer" qname="ns15:fundsTransfer" returnQName="ns15:fundsTransferReturn" returnType="ns16:TransactionArray" soapAction="" xmlns:ns15="http://service.com" xmlns:ns16="http://data.com">
+   <ns1:parameter qname="ns15:fromAccountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns15:toAccountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns15:amount" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="fundsTransfer" qname="ns17:fundsTransfer" returnQName="ns17:fundsTransferReturn" returnType="ns18:TransactionArray" soapAction="" xmlns:ns17="http://service.com" xmlns:ns18="http://data.com">
-   <ns1:parameter qname="ns17:fromAccountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns17:toAccountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="doDeposit" qname="ns17:doDeposit" returnQName="ns17:doDepositReturn" returnType="ns18:TransactionData" soapAction="" xmlns:ns17="http://service.com" xmlns:ns18="http://data.com">
+   <ns1:parameter qname="ns17:accountID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns17:amount" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="getAllAccountData fundsTransfer getAllTransactionData getCustomerDataByID getTransactionDataByID getAllCustomerData getAccountDataByID doDeposit doWithdraw"/>
+  <ns1:parameter name="allowedMethods" value="getAllAccountData fundsTransfer getAllTransactionData getTransactionDataByID getCustomerDataByID getAllCustomerData getAccountDataByID doWithdraw doDeposit"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Bank"/>
   <ns1:parameter name="className" value="com.service.Bank"/>

@@ -10,24 +10,20 @@
       <parameter name="className" value="com.service.Bank"/>
       <parameter name="wsdlPortType" value="Bank"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getCustomerDataByID" qname="operNS:getCustomerDataByID" returnQName="retNS:getCustomerDataByIDReturn" returnType="rtns:CustomerData" soapAction="">
-        <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerID" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAllTransactionData" qname="operNS:getAllTransactionData" returnQName="retNS:getAllTransactionDataReturn" returnType="rtns:TransactionArray" soapAction="">
-      </operation>
-      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAllAccountData" qname="operNS:getAllAccountData" returnQName="retNS:getAllAccountDataReturn" returnType="rtns:AccountArray" soapAction="">
-      </operation>
       <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getTransactionDataByID" qname="operNS:getTransactionDataByID" returnQName="retNS:getTransactionDataByIDReturn" returnType="rtns:TransactionData" soapAction="">
         <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:transactionID" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAllCustomerData" qname="operNS:getAllCustomerData" returnQName="retNS:getAllCustomerDataReturn" returnType="rtns:CustomerArray" soapAction="">
       </operation>
       <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAccountDataByID" qname="operNS:getAccountDataByID" returnQName="retNS:getAccountDataByIDReturn" returnType="rtns:AccountData" soapAction="">
         <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:accountID" type="tns:int"/>
       </operation>
-      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="doDeposit" qname="operNS:doDeposit" returnQName="retNS:doDepositReturn" returnType="rtns:TransactionData" soapAction="">
-        <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:accountID" type="tns:int"/>
-        <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:amount" type="tns:float"/>
+      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAllAccountData" qname="operNS:getAllAccountData" returnQName="retNS:getAllAccountDataReturn" returnType="rtns:AccountArray" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAllTransactionData" qname="operNS:getAllTransactionData" returnQName="retNS:getAllTransactionDataReturn" returnType="rtns:TransactionArray" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getCustomerDataByID" qname="operNS:getCustomerDataByID" returnQName="retNS:getCustomerDataByIDReturn" returnType="rtns:CustomerData" soapAction="">
+        <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="getAllCustomerData" qname="operNS:getAllCustomerData" returnQName="retNS:getAllCustomerDataReturn" returnType="rtns:CustomerArray" soapAction="">
       </operation>
       <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="doWithdraw" qname="operNS:doWithdraw" returnQName="retNS:doWithdrawReturn" returnType="rtns:TransactionData" soapAction="">
         <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:account_id" type="tns:int"/>
@@ -38,7 +34,11 @@
         <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:toAccountID" type="tns:int"/>
         <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:amount" type="tns:float"/>
       </operation>
-      <parameter name="allowedMethods" value="getAllAccountData fundsTransfer getAllTransactionData getCustomerDataByID getTransactionDataByID getAllCustomerData getAccountDataByID doDeposit doWithdraw"/>
+      <operation xmlns:operNS="http://service.com" xmlns:retNS="http://service.com" xmlns:rtns="http://data.com" name="doDeposit" qname="operNS:doDeposit" returnQName="retNS:doDepositReturn" returnType="rtns:TransactionData" soapAction="">
+        <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:accountID" type="tns:int"/>
+        <parameter xmlns:pns="http://service.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:amount" type="tns:float"/>
+      </operation>
+      <parameter name="allowedMethods" value="getAllAccountData fundsTransfer getAllTransactionData getTransactionDataByID getCustomerDataByID getAllCustomerData getAccountDataByID doWithdraw doDeposit"/>
 
       <typeMapping xmlns:ns="http://data.com" qname="ns:CustomerData" type="java:com.data.CustomerData" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
       <typeMapping xmlns:ns="http://data.com" qname="ns:AccountArray" type="java:com.data.AccountArray" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
