@@ -8,8 +8,8 @@ A simple service for SoapUI :)
 - Open Xamp and start the servers
 - Import the sql file 
 	- Incase you change the name of the database and user namesreflect the same in the `Authorization.java`
-- Create Web Service using `com.service.Bank.java`
-- Ues the WSDL url for your SoapUI
+- Create Web Service using `com.service.BankService.java`
+- Use the WSDL url for your SoapUI
 	- You need to have both Eclipse's Tomcat and Xamp's Apache&MySQL servers on when the soapUI fetches the response :expressionless:
 
 ## Versions of softwares used
@@ -32,4 +32,6 @@ getAccountDataByID |
 getTransactionDataByID | 
 doDeposit | 
 doWithdraw | 
-fundsTransfer | 
+fundsTransfer |
+
+Added Lot more ... Will make list when I have time *sigh 
