@@ -39,7 +39,7 @@ public class AccountData {
 	public void setBalance(float balance) {
 		this.balance = balance;
 	}
-	public String getAll() {
+	public String displayAll() {
 		return this.getAccount_id() + "\t\t" + this.getAccount_type()+ "\t\t" + this.getBalance();
 	}
 	

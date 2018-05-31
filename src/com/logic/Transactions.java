@@ -44,7 +44,7 @@ public class Transactions {
 					resultSet.getFloat("balance")+amount,
 					"Deposit "+amount
 					);
-			System.out.println(data.getAll());
+			System.out.println(data.displayAll());
 			// update balance in account
 			sql = "update account set balance = "+ data.getBalance() +"where account_id = "+data.getAccount_id();
 			statement.executeUpdate(sql);
@@ -120,7 +120,7 @@ public class Transactions {
 				balance,
 				description
 			);
-			System.out.println(data.getAll());
+			System.out.println(data.displayAll());
 			// update balance in account
 			sql = "update account set balance = "+ data.getBalance() +"where account_id = "+data.getAccount_id();
 			statement.executeUpdate(sql);

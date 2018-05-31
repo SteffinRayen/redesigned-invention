@@ -58,7 +58,7 @@ public class TransactionData {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getAll() {
+	public String displayAll() {
 		return this.getTransaction_id() +"\t\t"+ this.getAccount_id() +"\t\t"+ 
 				this.getDate() +"\t\t"+ this.getAmount() +"\t\t"+ this.getBalance() +"\t\t"+ 
 				this.getDescription();

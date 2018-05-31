@@ -93,7 +93,7 @@ public class CustomerData {
 		this.email = email;
 	}
 	
-	public String getAll () {
+	public String displayAll () {
 		return this.getCustomer_id() +"\t\t"+ this.getFirst_name()+"\t\t"+ 
 				this.getMiddle_name()+"\t\t"+ this.getLast_name()+"\t\t"+ 
 				this.getStreet()+"\t\t"+ this.getCity()+"\t\t"+ 

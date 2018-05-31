@@ -16,7 +16,7 @@ public class PrintAll {
 			CustomerData data = null;
 			while (i.hasNext()) {
 				data = (CustomerData)i.next();
-				result = result + data.getAll() + "\n";
+				result = result + data.displayAll() + "\n";
 			}
 			return result;
 		}
@@ -31,7 +31,7 @@ public class PrintAll {
 			AccountData data = null;
 			while (i.hasNext()) {
 				data = (AccountData)i.next();
-				result = result + data.getAll() + "\n";
+				result = result + data.displayAll() + "\n";
 			}
 			return result;
 		}
@@ -46,7 +46,7 @@ public class PrintAll {
 			TransactionData data = null;
 			while (i.hasNext()) {
 				data = (TransactionData)i.next();
-				result = result + data.getAll() + "\n";
+				result = result + data.displayAll() + "\n";
 			}
 			return result;
 		}
