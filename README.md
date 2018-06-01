@@ -35,3 +35,4 @@ doWithdraw |
 fundsTransfer |
 
 Added Lot more ... Will make list when I have time *sigh 
+Created a small UI
