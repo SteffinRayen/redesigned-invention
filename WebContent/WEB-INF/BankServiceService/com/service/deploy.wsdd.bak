@@ -26,42 +26,44 @@
       <operation name="createAccount" qname="operNS:createAccount" xmlns:operNS="http://service.com" returnQName="retNS:createAccountReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountData" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:accountData" xmlns:pns="http://service.com" type="tns:AccountData" xmlns:tns="http://model.com"/>
       </operation>
-      <operation name="getByBalance" qname="operNS:getByBalance" xmlns:operNS="http://service.com" returnQName="retNS:getByBalanceReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:balance" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getByAccountID" qname="operNS:getByAccountID" xmlns:operNS="http://service.com" returnQName="retNS:getByAccountIDReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getByTimeStamp" qname="operNS:getByTimeStamp" xmlns:operNS="http://service.com" returnQName="retNS:getByTimeStampReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:time_stamp" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getByAmount" qname="operNS:getByAmount" xmlns:operNS="http://service.com" returnQName="retNS:getByAmountReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getByDescription" qname="operNS:getByDescription" xmlns:operNS="http://service.com" returnQName="retNS:getByDescriptionReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:description" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="doDeposit" qname="operNS:doDeposit" xmlns:operNS="http://service.com" returnQName="retNS:doDepositReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="doWithdraw" qname="operNS:doWithdraw" xmlns:operNS="http://service.com" returnQName="retNS:doWithdrawReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
       <operation name="doFundsTransfer" qname="operNS:doFundsTransfer" xmlns:operNS="http://service.com" returnQName="retNS:doFundsTransferReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:fromAccountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:toAccountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="getByBalance" qname="operNS:getByBalance" xmlns:operNS="http://service.com" returnQName="retNS:getByBalanceReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:balance" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="doWithdraw" qname="operNS:doWithdraw" xmlns:operNS="http://service.com" returnQName="retNS:doWithdrawReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="doDeposit" qname="operNS:doDeposit" xmlns:operNS="http://service.com" returnQName="retNS:doDepositReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getByAmount" qname="operNS:getByAmount" xmlns:operNS="http://service.com" returnQName="retNS:getByAmountReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:amount" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getByTimeStamp" qname="operNS:getByTimeStamp" xmlns:operNS="http://service.com" returnQName="retNS:getByTimeStampReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:time_stamp" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getByAccountID" qname="operNS:getByAccountID" xmlns:operNS="http://service.com" returnQName="retNS:getByAccountIDReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getByDescription" qname="operNS:getByDescription" xmlns:operNS="http://service.com" returnQName="retNS:getByDescriptionReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:description" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAllCustomerData" qname="operNS:getAllCustomerData" xmlns:operNS="http://service.com" returnQName="retNS:getAllCustomerDataReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
+      </operation>
+      <operation name="getCustomerDataByFirstName" qname="operNS:getCustomerDataByFirstName" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByFirstNameReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:first_name" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCustomerDataByLastName" qname="operNS:getCustomerDataByLastName" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByLastNameReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:last_name" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getCustomerDataByMiddleName" qname="operNS:getCustomerDataByMiddleName" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByMiddleNameReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:middle_name" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getCustomerDataByID" qname="operNS:getCustomerDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerData" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:customerID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="createTransaction" qname="operNS:createTransaction" xmlns:operNS="http://service.com" returnQName="retNS:createTransactionReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:transactionData" xmlns:pns="http://service.com" type="tns:TransactionData" xmlns:tns="http://model.com"/>
       </operation>
       <operation name="getCustomerDataByStreet" qname="operNS:getCustomerDataByStreet" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByStreetReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:street" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -69,49 +71,51 @@
       <operation name="getCustomerDataByCity" qname="operNS:getCustomerDataByCity" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByCityReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:city" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="getAccountDataByBalance" qname="operNS:getAccountDataByBalance" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDataByBalanceReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:balance" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getCustomerDataByPhone" qname="operNS:getCustomerDataByPhone" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByPhoneReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:phone" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getAllCustomerData" qname="operNS:getAllCustomerData" xmlns:operNS="http://service.com" returnQName="retNS:getAllCustomerDataReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
-      </operation>
-      <operation name="getAccountDataByID" qname="operNS:getAccountDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountData" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:accountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getTransactionDataByID" qname="operNS:getTransactionDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getTransactionDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:transactionID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getCustomerDataByLastName" qname="operNS:getCustomerDataByLastName" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByLastNameReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:last_name" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getCustomerDataByFirstName" qname="operNS:getCustomerDataByFirstName" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByFirstNameReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:first_name" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getCustomerDataByEmail" qname="operNS:getCustomerDataByEmail" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByEmailReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:email" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
       <operation name="getCustomerDataByState" qname="operNS:getCustomerDataByState" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByStateReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:state" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="getCustomerDataByZip" qname="operNS:getCustomerDataByZip" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByZipReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:zip" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="createTransaction" qname="operNS:createTransaction" xmlns:operNS="http://service.com" returnQName="retNS:createTransactionReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:transactionData" xmlns:pns="http://service.com" type="tns:TransactionData" xmlns:tns="http://model.com"/>
+      </operation>
+      <operation name="createCustomerAccount" qname="operNS:createCustomerAccount" xmlns:operNS="http://service.com" returnQName="retNS:createCustomerAccountReturn" xmlns:retNS="http://service.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:customer_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCustomerDataByID" qname="operNS:getCustomerDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerData" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:customerID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCustomerDataByPhone" qname="operNS:getCustomerDataByPhone" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByPhoneReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:phone" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAccountDataByID" qname="operNS:getAccountDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountData" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:accountID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAccountDataByBalance" qname="operNS:getAccountDataByBalance" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDataByBalanceReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:balance" xmlns:pns="http://service.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getAllAccountData" qname="operNS:getAllAccountData" xmlns:operNS="http://service.com" returnQName="retNS:getAllAccountDataReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountArray" xmlns:rtns="http://model.com" soapAction="" >
       </operation>
       <operation name="getAccountDataByType" qname="operNS:getAccountDataByType" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDataByTypeReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:account_type" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="getAccountDetailsByCustomerID" qname="operNS:getAccountDetailsByCustomerID" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDetailsByCustomerIDReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerAccountArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:customer_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTransactionDataByID" qname="operNS:getTransactionDataByID" xmlns:operNS="http://service.com" returnQName="retNS:getTransactionDataByIDReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionData" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:transactionID" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getAllTransactionData" qname="operNS:getAllTransactionData" xmlns:operNS="http://service.com" returnQName="retNS:getAllTransactionDataReturn" xmlns:retNS="http://service.com" returnType="rtns:TransactionArray" xmlns:rtns="http://model.com" soapAction="" >
+      </operation>
+      <operation name="getCustomerDataByEmail" qname="operNS:getCustomerDataByEmail" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDataByEmailReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerArray" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:email" xmlns:pns="http://service.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="getCustomerDetailsByAccountID" qname="operNS:getCustomerDetailsByAccountID" xmlns:operNS="http://service.com" returnQName="retNS:getCustomerDetailsByAccountIDReturn" xmlns:retNS="http://service.com" returnType="rtns:AccountCustomerArray" xmlns:rtns="http://model.com" soapAction="" >
         <parameter qname="pns:account_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="getAccountDetailsByCustomerID" qname="operNS:getAccountDetailsByCustomerID" xmlns:operNS="http://service.com" returnQName="retNS:getAccountDetailsByCustomerIDReturn" xmlns:retNS="http://service.com" returnType="rtns:CustomerAccountArray" xmlns:rtns="http://model.com" soapAction="" >
-        <parameter qname="pns:customer_id" xmlns:pns="http://service.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <parameter name="allowedMethods" value="getByBalance doFundsTransfer getCustomerDataByEmail getCustomerDataByPhone getAllAccountData getCustomerDetailsByAccountID getAllTransactionData getCustomerDataByStreet getAccountDataByID getByAccountID doWithdraw getCustomerDataByFirstName getCustomerDataByMiddleName createCustomer getCustomerDataByID getTransactionDataByID createAccount doDeposit getAccountDataByBalance getAccountDataByType getByDescription getCustomerDataByLastName getAccountDetailsByCustomerID getCustomerDataByState getByTimeStamp getCustomerDataByZip getAllCustomerData getByAmount getCustomerDataByCity createTransaction"/>
+      <parameter name="allowedMethods" value="getByBalance doFundsTransfer getCustomerDataByEmail getCustomerDataByPhone getAllAccountData getCustomerDetailsByAccountID getAllTransactionData getCustomerDataByStreet getAccountDataByID doWithdraw getByAccountID getCustomerDataByFirstName getCustomerDataByMiddleName createCustomer getCustomerDataByID getTransactionDataByID createAccount doDeposit getAccountDataByBalance getAccountDataByType getByDescription createCustomerAccount getCustomerDataByLastName getAccountDetailsByCustomerID getCustomerDataByState getByTimeStamp getCustomerDataByZip getAllCustomerData getByAmount getCustomerDataByCity createTransaction"/>
 
       <typeMapping
         xmlns:ns="http://model.com"

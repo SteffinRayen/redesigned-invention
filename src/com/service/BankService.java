@@ -14,7 +14,9 @@ public class BankService {
 	public TransactionData createTransaction (TransactionData transactionData) {
 		return CreationDetails.createTransaction(transactionData);
 	}
-
+	public static String createCustomerAccount (int customer_id, int account_id) {
+		return CustomerAccount.createCustomerAccountMapping(customer_id, account_id);
+	}
 	public CustomerData getCustomerDataByID (int customerID) {
 		return CustomerDetails.getByID(customerID);
 	}
@@ -98,5 +100,6 @@ public class BankService {
 	public static CustomerAccountArray getAccountDetailsByCustomerID (int customer_id) {
 		return CustomerAccount.getAccountDetailsByCustomerID(customer_id);
 	}
+	
 	
 }

@@ -103,5 +103,50 @@ public class CustomerAccount {
 		}
 		return result;
 	}
+	
+	public static String createCustomerAccountMapping (int customer_id, int account_id) {
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		String sql = null;
+		String result = null;
+		
+		try {
+			Class.forName(Authorization.JDBC_DRIVER);
+			connection = DriverManager.getConnection(Authorization.DB_URL, Authorization.USER_NAME,
+					Authorization.PASSWORD);
+			statement = connection.createStatement();
 
+			sql = "select customer_id from customer where customer_id = '"+customer_id+"'";
+			System.out.println(sql);
+			resultSet = statement.executeQuery(sql);
+			if(resultSet.next()) {
+				sql = "select account_id from account where account_id = '"+account_id+"'";
+				System.out.println(sql);
+				resultSet = statement.executeQuery(sql);
+				if(resultSet.next()) {
+					sql = "insert into customer_account values ('"+customer_id+"','"+account_id+"')";
+					System.out.println(sql);
+					statement.executeUpdate(sql);
+					result = "Mapping Created";
+				}else {
+					result =  "Account ID does not exist";
+				}
+			}else {
+				result =  "Customer ID does not exist";
+			}
+			
+			sql = null;
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			System.out.println("Exception : AccountCustomerArray createCustomerAccountMapping" + e.getMessage());
+			return "SQL Error";
+		} catch (Exception e) {
+			System.out.println("Exception : AccountCustomerArray createCustomerAccountMapping" + e.getMessage());
+			return "Exclipse Error";
+		}
+		return result;
+	}
 }
