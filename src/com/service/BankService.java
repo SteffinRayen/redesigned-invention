@@ -1,7 +1,7 @@
 package com.service;
 
 import com.model.*;
-import java.util.List;
+import com.utilities.ConvertListToArray;
 import com.logic.*;
 
 public class BankService {
@@ -19,145 +19,69 @@ public class BankService {
 		return CustomerDetails.getByID(customerID);
 	}
 	public CustomerArray getAllCustomerData () {
-		List<CustomerData> data= CustomerDetails.getAll();
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getAll());
 	}
 	public CustomerArray getCustomerDataByFirstName (String first_name) {
-		List<CustomerData> data= CustomerDetails.getByFirstName(first_name);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByFirstName(first_name));
 	}
 	public CustomerArray getCustomerDataByLastName (String last_name) {
-		List<CustomerData> data= CustomerDetails.getByLastName(last_name);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByLastName(last_name));
 	}
 	public CustomerArray getCustomerDataByMiddleName (String middle_name) {
-		List<CustomerData> data= CustomerDetails.getByMiddleName(middle_name);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByMiddleName(middle_name));
 	}
 	public CustomerArray getCustomerDataByStreet (String street) {
-		List<CustomerData> data= CustomerDetails.getByStreet(street);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByStreet(street));
 	}
 	public CustomerArray getCustomerDataByCity (String city) {
-		List<CustomerData> data= CustomerDetails.getByCity(city);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByCity(city));
 	}
 	public CustomerArray getCustomerDataByState (String state) {
-		List<CustomerData> data= CustomerDetails.getByState(state);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByState(state));
 	}
 	public CustomerArray getCustomerDataByZip (String zip) {
-		List<CustomerData> data= CustomerDetails.getByZip(zip);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByZip(zip));
 	}
 	public CustomerArray getCustomerDataByPhone (String phone) {
-		List<CustomerData> data= CustomerDetails.getByPhone(phone);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByPhone(phone));
 	}
 	public CustomerArray getCustomerDataByEmail (String email) {
-		List<CustomerData> data= CustomerDetails.getByEmail(email);
-		CustomerData[] dataArray= new CustomerData[data.size()];
-		dataArray = data.toArray(dataArray);
-		CustomerArray result = new CustomerArray(dataArray);
-		return result;
+		return ConvertListToArray.customerDetails(CustomerDetails.getByEmail(email));
 	}
 	
 	public AccountData getAccountDataByID (int accountID) {
 		return AccountDetails.getByID(accountID);
 	}
 	public AccountArray getAllAccountData () {
-		List<AccountData> data= AccountDetails.getAll();
-		AccountData[] dataArray= new AccountData[data.size()];
-		dataArray = data.toArray(dataArray);
-		AccountArray result = new AccountArray(dataArray);
-		return result;
+		return ConvertListToArray.accountDetails(AccountDetails.getAll());
 	}
 	public AccountArray getAccountDataByType (String account_type) {
-		List<AccountData> data= AccountDetails.getByType(account_type);
-		AccountData[] dataArray= new AccountData[data.size()];
-		dataArray = data.toArray(dataArray);
-		AccountArray result = new AccountArray(dataArray);
-		return result;
+		return ConvertListToArray.accountDetails(AccountDetails.getByType(account_type));
 	}
 	public AccountArray getAccountDataByBalance (float balance) {
-		List<AccountData> data= AccountDetails.getByBalance(balance);
-		AccountData[] dataArray= new AccountData[data.size()];
-		dataArray = data.toArray(dataArray);
-		AccountArray result = new AccountArray(dataArray);
-		return result;
+		return ConvertListToArray.accountDetails(AccountDetails.getByBalance(balance));
 	}
 	
 	public TransactionData getTransactionDataByID (int transactionID) {
 		return TransactionDetails.getByID(transactionID);
 	}
 	public TransactionArray getAllTransactionData () {
-		List<TransactionData> data= TransactionDetails.getAll();
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
+		return ConvertListToArray.transactionDetails(TransactionDetails.getAll());
 	}
 	public TransactionArray getByAccountID (int account_id) {
-		List<TransactionData> data= TransactionDetails.getByAccountID(account_id);
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
+		return ConvertListToArray.transactionDetails(TransactionDetails.getByAccountID(account_id));
 	}
 	public TransactionArray getByTimeStamp (String time_stamp) {
-		List<TransactionData> data= TransactionDetails.getByTimeStamp(time_stamp);
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
+		return ConvertListToArray.transactionDetails(TransactionDetails.getByTimeStamp(time_stamp));
 	}
 	public TransactionArray getByAmount (float amount) {
-		List<TransactionData> data= TransactionDetails.getByAmount(amount);
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
+		return ConvertListToArray.transactionDetails(TransactionDetails.getByAmount(amount));
 	}
 	public TransactionArray getByBalance (float balance) {
-		List<TransactionData> data= TransactionDetails.getByBalance(balance);
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
+		return ConvertListToArray.transactionDetails(TransactionDetails.getByBalance(balance));
 	}
 	public TransactionArray getByDescription (String description) {
-		List<TransactionData> data= TransactionDetails.getByDescription(description);
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
+		return ConvertListToArray.transactionDetails(TransactionDetails.getByDescription(description));
 	}
 	public static TransactionData doDeposit (int account_id, float amount) {
 		return Transactions.deposit(account_id, amount);
@@ -166,12 +90,13 @@ public class BankService {
 		return Transactions.withdraw(account_id, amount);
 	}
 	public static TransactionArray doFundsTransfer(int fromAccountID, int toAccountID, float amount) {
-		List<TransactionData> data = Transactions.fundsTransfer(fromAccountID, toAccountID, amount);
-		TransactionData[] dataArray= new TransactionData[data.size()];
-		dataArray = data.toArray(dataArray);
-		TransactionArray result = new TransactionArray(dataArray);
-		return result;
-		
+		return ConvertListToArray.transactionDetails(Transactions.fundsTransfer(fromAccountID, toAccountID, amount));	
+	}
+	public static AccountCustomerArray getCustomerDetailsByAccountID (int account_id) {
+		return CustomerAccount.getCustomerDetailsByAccountID(account_id);
+	}
+	public static CustomerAccountArray getAccountDetailsByCustomerID (int customer_id) {
+		return CustomerAccount.getAccountDetailsByCustomerID(customer_id);
 	}
 	
 }

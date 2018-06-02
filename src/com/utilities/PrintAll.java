@@ -1,4 +1,5 @@
 package com.utilities;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,6 +22,15 @@ public class PrintAll {
 			return result;
 		}
 	}
+	public static String customer(CustomerArray array){
+		
+		if (array == null) {
+			return "No Records to display";
+		} else {
+			
+			return Arrays.toString(array.customerDataArray);
+		}
+	}
 	public static String account(List<AccountData> list){
 		
 		if (list == null) {
@@ -36,6 +46,15 @@ public class PrintAll {
 			return result;
 		}
 	}
+	public static String account(AccountArray array){
+		
+		if (array == null) {
+			return "No Records to display";
+		} else {
+			
+			return Arrays.toString(array.accountDataArray);
+		}
+	}
 	public static String transaction(List<TransactionData> list){
 		
 		if (list == null) {
@@ -49,6 +68,15 @@ public class PrintAll {
 				result = result + data.displayAll() + "\n";
 			}
 			return result;
+		}
+	}
+	public static String transaction(TransactionArray array){
+		
+		if (array == null) {
+			return "No Records to display";
+		} else {
+			
+			return Arrays.toString(array.transactionDataArray);
 		}
 	}
 }

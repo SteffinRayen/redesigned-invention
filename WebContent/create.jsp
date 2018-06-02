@@ -21,8 +21,7 @@
 		</tr>
 	</table><br>
 	<form action="CreateCustomerController" method="post">
-		<table>
-					<table>	
+		<table>	
 			<tr>
 				<td>Account ID</td>
 				<td><input type="text" name="customer_id"></td>
@@ -66,7 +65,6 @@
 			<tr>
 				<td colspan="2"><button type="submit" >Create Customer</button></td>
 			</tr>
-		</table>
 		</table>
 	</form><br>
 	<form action="CreateAccountController" method="post">

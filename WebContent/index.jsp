@@ -24,6 +24,10 @@
 			<td><input type="button" onclick="OpenPage('viewA.jsp')" value="View Account Details"></td>
 		</tr>
 		<tr>
+			<td><input type="button" onclick="OpenPage('viewAC.jsp')" value="View Customer-Account Details"></td>
+		</tr>
+		
+		<tr>
 			<td><input type="button" onclick="OpenPage('viewT.jsp')" value="View Transaction Details"></td>
 		</tr>
 		<tr>

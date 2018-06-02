@@ -129,4 +129,91 @@ public class CreationDetails {
 		return transactionData;
 	}
 
+	public static CustomerAccountMapping createCAMapping (int customer_id, int account_id) {
+		
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		CustomerData customerData = null;
+		AccountData accountData = null;
+		CustomerAccountMapping caObject = new CustomerAccountMapping(customer_id, account_id, customerData, accountData);
+
+		try {
+			Class.forName(Authorization.JDBC_DRIVER);
+			connection = DriverManager.getConnection(Authorization.DB_URL, Authorization.USER_NAME,
+					Authorization.PASSWORD);
+			statement = connection.createStatement();
+			// if customerID exists
+			String sqlC = "select * from customer where customer_id='"+caObject.getCustomer_id()+"'";
+			System.out.println(sqlC);
+			resultSet = statement.executeQuery(sqlC);
+			if (resultSet.next()) {
+				customerData = new CustomerData(
+						resultSet.getInt("customer_id"),
+						resultSet.getString("first_name"),
+						resultSet.getString("middle_name"),
+						resultSet.getString("last_name"),
+						resultSet.getString("street"),
+						resultSet.getString("city"),
+						resultSet.getString("state"),
+						resultSet.getString("zip"),
+						resultSet.getString("phone"),
+						resultSet.getString("email")
+						);
+				caObject.setCusomterData(customerData);
+				// if account_id exists
+				String sqlA = "select * from account where account_id='"+caObject.getAccount_id()+"'";
+				resultSet = statement.executeQuery(sqlA);
+				if (resultSet.next()) {
+					accountData = new AccountData(
+							resultSet.getInt("account_id"),
+							resultSet.getString("account_type"),
+							resultSet.getFloat("balance")
+							);
+					String sqlCA = "select * from customer_account where customer_id='"+caObject.getCustomer_id()+"' and account_id='"+caObject.getAccount_id()+"'";
+					resultSet = statement.executeQuery(sqlCA);
+					if (resultSet.next()) {
+						
+					}else {
+						String sql = "insert into customer_account values " + 
+								"(" + "'" + caObject.getCustomer_id() + "'," 
+								+ "'" + caObject.getAccount_id() + "'" 
+								+ ")";
+						System.out.println(sql);
+						statement.executeUpdate(sql);
+						sql = null;
+						sqlA = null;
+						sqlC = null;
+						resultSet = null;
+						statement = null;
+						connection = null;
+						
+					}
+					
+				}else {
+					sqlA = null;
+					sqlC = null;
+					statement = null;
+					connection = null;
+					
+				}
+			} else {
+				sqlC = null;
+				statement = null;
+				connection = null;
+				
+			}
+			statement.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			System.out.println("Exception : Account Creation" + e.getMessage());
+			return caObject;
+		} catch (Exception e) {
+			System.out.println("Exception : Account Creation" + e.getMessage());
+			return caObject;
+		}
+		return caObject;
+
+	}
 }
