@@ -12,8 +12,8 @@ public class AccountData {
 	public AccountData(int account_id, String account_type, float balance) {
 		super();
 		this.account_id = account_id;
-		this.account_type = (account_type.equals("S") || account_type.equals("C"))?
-				((account_type.equals("S"))?
+		this.account_type = (account_type.toUpperCase().equals("S") || account_type.toUpperCase().equals("C"))?
+				((account_type.toUpperCase().equals("S"))?
 						"Savings Account":"Credit Account")
 				:"Error";
 		this.balance = balance;

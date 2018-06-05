@@ -63,17 +63,13 @@ public class CreationDetails {
 			connection = DriverManager.getConnection(Authorization.DB_URL, Authorization.USER_NAME,
 					Authorization.PASSWORD);
 			statement = connection.createStatement();
-			if (accountData.getAccount_type().toLowerCase().equals("s") || accountData.getAccount_type().toLowerCase().equals("c") ) {
-				sql = "insert into account values " + 
+			sql = "insert into account values " + 
 						"(" + "'" + accountData.getAccount_id() + "'," 
 						+ "'" + (accountData.getAccount_type().toLowerCase().equals("savings account")?"S":"C") + "'," 
 						+ "'" + accountData.getBalance() + "'" 
 						+ ")";
 				System.out.println(sql);
 				statement.executeUpdate(sql);
-			} else {
-				accountData = new AccountData(0, "Error", 0);
-			}
 			
 			sql = null;
 			statement.close();
@@ -81,10 +77,10 @@ public class CreationDetails {
 
 		} catch (SQLException e) {
 			System.out.println("Exception : Account Creation" + e.getMessage());
-			return ErrorStatus.errorAccountData;
+			return accountData;
 		} catch (Exception e) {
 			System.out.println("Exception : Account Creation" + e.getMessage());
-			return ErrorStatus.errorAccountData;
+			return accountData;
 		}
 		return accountData;
 	}

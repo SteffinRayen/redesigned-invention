@@ -70,19 +70,19 @@ public class BankService {
 	public TransactionArray getAllTransactionData () {
 		return ConvertListToArray.transactionDetails(TransactionDetails.getAll());
 	}
-	public TransactionArray getByAccountID (int account_id) {
+	public TransactionArray getTransactionDataByAccountID (int account_id) {
 		return ConvertListToArray.transactionDetails(TransactionDetails.getByAccountID(account_id));
 	}
-	public TransactionArray getByTimeStamp (String time_stamp) {
+	public TransactionArray getTransactionDataByTimeStamp (String time_stamp) {
 		return ConvertListToArray.transactionDetails(TransactionDetails.getByTimeStamp(time_stamp));
 	}
-	public TransactionArray getByAmount (float amount) {
+	public TransactionArray getTransactionDataByAmount (float amount) {
 		return ConvertListToArray.transactionDetails(TransactionDetails.getByAmount(amount));
 	}
-	public TransactionArray getByBalance (float balance) {
+	public TransactionArray getTransactionDataByBalance (float balance) {
 		return ConvertListToArray.transactionDetails(TransactionDetails.getByBalance(balance));
 	}
-	public TransactionArray getByDescription (String description) {
+	public TransactionArray getTransactionDataByDescription (String description) {
 		return ConvertListToArray.transactionDetails(TransactionDetails.getByDescription(description));
 	}
 	public static TransactionData doDeposit (int account_id, float amount) {

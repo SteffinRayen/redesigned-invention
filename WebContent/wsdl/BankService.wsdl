@@ -5,67 +5,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://service.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://model.com"/>
-   <element name="createAccount">
-    <complexType>
-     <sequence>
-      <element name="accountData" type="tns1:AccountData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createAccountResponse">
-    <complexType>
-     <sequence>
-      <element name="createAccountReturn" type="tns1:AccountData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createCustomer">
-    <complexType>
-     <sequence>
-      <element name="customerData" type="tns1:CustomerData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createCustomerResponse">
-    <complexType>
-     <sequence>
-      <element name="createCustomerReturn" type="tns1:CustomerData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getByTimeStamp">
-    <complexType>
-     <sequence>
-      <element name="time_stamp" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getByTimeStampResponse">
-    <complexType>
-     <sequence>
-      <element name="getByTimeStampReturn" type="tns1:TransactionArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <complexType name="ArrayOf_tns1_TransactionData">
-    <sequence>
-     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:TransactionData"/>
-    </sequence>
-   </complexType>
-   <element name="getByAmount">
-    <complexType>
-     <sequence>
-      <element name="amount" type="xsd:float"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getByAmountResponse">
-    <complexType>
-     <sequence>
-      <element name="getByAmountReturn" type="tns1:TransactionArray"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="doDeposit">
     <complexType>
      <sequence>
@@ -81,17 +20,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getByAccountID">
+   <element name="doWithdraw">
     <complexType>
      <sequence>
       <element name="account_id" type="xsd:int"/>
+      <element name="amount" type="xsd:float"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getByAccountIDResponse">
+   <element name="doWithdrawResponse">
     <complexType>
      <sequence>
-      <element name="getByAccountIDReturn" type="tns1:TransactionArray"/>
+      <element name="doWithdrawReturn" type="tns1:TransactionData"/>
      </sequence>
     </complexType>
    </element>
@@ -111,68 +51,53 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="doWithdraw">
+   <complexType name="ArrayOf_tns1_TransactionData">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:TransactionData"/>
+    </sequence>
+   </complexType>
+   <element name="createCustomer">
     <complexType>
      <sequence>
-      <element name="account_id" type="xsd:int"/>
-      <element name="amount" type="xsd:float"/>
+      <element name="customerData" type="tns1:CustomerData"/>
      </sequence>
     </complexType>
    </element>
-   <element name="doWithdrawResponse">
+   <element name="createCustomerResponse">
     <complexType>
      <sequence>
-      <element name="doWithdrawReturn" type="tns1:TransactionData"/>
+      <element name="createCustomerReturn" type="tns1:CustomerData"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getByDescription">
+   <element name="createAccount">
     <complexType>
      <sequence>
-      <element name="description" type="xsd:string"/>
+      <element name="accountData" type="tns1:AccountData"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getByDescriptionResponse">
+   <element name="createAccountResponse">
     <complexType>
      <sequence>
-      <element name="getByDescriptionReturn" type="tns1:TransactionArray"/>
+      <element name="createAccountReturn" type="tns1:AccountData"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getByBalance">
+   <element name="getTransactionDataByBalance">
     <complexType>
      <sequence>
       <element name="balance" type="xsd:float"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getByBalanceResponse">
+   <element name="getTransactionDataByBalanceResponse">
     <complexType>
      <sequence>
-      <element name="getByBalanceReturn" type="tns1:TransactionArray"/>
+      <element name="getTransactionDataByBalanceReturn" type="tns1:TransactionArray"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getCustomerDataByState">
-    <complexType>
-     <sequence>
-      <element name="state" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByStateResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByStateReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <complexType name="ArrayOf_tns1_CustomerData">
-    <sequence>
-     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:CustomerData"/>
-    </sequence>
-   </complexType>
    <element name="createTransaction">
     <complexType>
      <sequence>
@@ -184,171 +109,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="createTransactionReturn" type="tns1:TransactionData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getAccountDataByID">
-    <complexType>
-     <sequence>
-      <element name="accountID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getAccountDataByIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getAccountDataByIDReturn" type="tns1:AccountData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createCustomerAccount">
-    <complexType>
-     <sequence>
-      <element name="customer_id" type="xsd:int"/>
-      <element name="account_id" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createCustomerAccountResponse">
-    <complexType>
-     <sequence>
-      <element name="createCustomerAccountReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByZip">
-    <complexType>
-     <sequence>
-      <element name="zip" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByZipResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByZipReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByPhone">
-    <complexType>
-     <sequence>
-      <element name="phone" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByPhoneResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByPhoneReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByID">
-    <complexType>
-     <sequence>
-      <element name="customerID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByIDReturn" type="tns1:CustomerData"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByFirstName">
-    <complexType>
-     <sequence>
-      <element name="first_name" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByFirstNameResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByFirstNameReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getAllCustomerData">
-    <complexType/>
-   </element>
-   <element name="getAllCustomerDataResponse">
-    <complexType>
-     <sequence>
-      <element name="getAllCustomerDataReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByMiddleName">
-    <complexType>
-     <sequence>
-      <element name="middle_name" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByMiddleNameResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByMiddleNameReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByStreet">
-    <complexType>
-     <sequence>
-      <element name="street" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByStreetResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByStreetReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByEmail">
-    <complexType>
-     <sequence>
-      <element name="email" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByEmailResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByEmailReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByLastName">
-    <complexType>
-     <sequence>
-      <element name="last_name" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByLastNameResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByLastNameReturn" type="tns1:CustomerArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByCity">
-    <complexType>
-     <sequence>
-      <element name="city" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getCustomerDataByCityResponse">
-    <complexType>
-     <sequence>
-      <element name="getCustomerDataByCityReturn" type="tns1:CustomerArray"/>
      </sequence>
     </complexType>
    </element>
@@ -371,31 +131,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:AccountData"/>
     </sequence>
    </complexType>
-   <element name="getAccountDataByType">
+   <element name="getTransactionDataByID">
     <complexType>
      <sequence>
-      <element name="account_type" type="xsd:string"/>
+      <element name="transactionID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getAccountDataByTypeResponse">
+   <element name="getTransactionDataByIDResponse">
     <complexType>
      <sequence>
-      <element name="getAccountDataByTypeReturn" type="tns1:AccountArray"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getAccountDetailsByCustomerID">
-    <complexType>
-     <sequence>
-      <element name="customer_id" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getAccountDetailsByCustomerIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getAccountDetailsByCustomerIDReturn" type="tns1:CustomerAccountArray"/>
+      <element name="getTransactionDataByIDReturn" type="tns1:TransactionData"/>
      </sequence>
     </complexType>
    </element>
@@ -413,27 +159,64 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getAllAccountData">
-    <complexType/>
-   </element>
-   <element name="getAllAccountDataResponse">
+   <complexType name="ArrayOf_tns1_CustomerData">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:CustomerData"/>
+    </sequence>
+   </complexType>
+   <element name="getCustomerDataByStreet">
     <complexType>
      <sequence>
-      <element name="getAllAccountDataReturn" type="tns1:AccountArray"/>
+      <element name="street" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getTransactionDataByID">
+   <element name="getCustomerDataByStreetResponse">
     <complexType>
      <sequence>
-      <element name="transactionID" type="xsd:int"/>
+      <element name="getCustomerDataByStreetReturn" type="tns1:CustomerArray"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getTransactionDataByIDResponse">
+   <element name="getCustomerDataByID">
     <complexType>
      <sequence>
-      <element name="getTransactionDataByIDReturn" type="tns1:TransactionData"/>
+      <element name="customerID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByIDReturn" type="tns1:CustomerData"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDetailsByCustomerID">
+    <complexType>
+     <sequence>
+      <element name="customer_id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDetailsByCustomerIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountDetailsByCustomerIDReturn" type="tns1:CustomerAccountArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByTimeStamp">
+    <complexType>
+     <sequence>
+      <element name="time_stamp" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByTimeStampResponse">
+    <complexType>
+     <sequence>
+      <element name="getTransactionDataByTimeStampReturn" type="tns1:TransactionArray"/>
      </sequence>
     </complexType>
    </element>
@@ -447,14 +230,239 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="getAllCustomerData">
+    <complexType/>
+   </element>
+   <element name="getAllCustomerDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllCustomerDataReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByAmount">
+    <complexType>
+     <sequence>
+      <element name="amount" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByAmountResponse">
+    <complexType>
+     <sequence>
+      <element name="getTransactionDataByAmountReturn" type="tns1:TransactionArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllAccountData">
+    <complexType/>
+   </element>
+   <element name="getAllAccountDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllAccountDataReturn" type="tns1:AccountArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByLastName">
+    <complexType>
+     <sequence>
+      <element name="last_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByLastNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByLastNameReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByEmail">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByEmailResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByEmailReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByCity">
+    <complexType>
+     <sequence>
+      <element name="city" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByCityResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByCityReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByZip">
+    <complexType>
+     <sequence>
+      <element name="zip" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByZipResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByZipReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByState">
+    <complexType>
+     <sequence>
+      <element name="state" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByStateResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByStateReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDataByID">
+    <complexType>
+     <sequence>
+      <element name="accountID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDataByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountDataByIDReturn" type="tns1:AccountData"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByFirstName">
+    <complexType>
+     <sequence>
+      <element name="first_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByFirstNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByFirstNameReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByMiddleName">
+    <complexType>
+     <sequence>
+      <element name="middle_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByMiddleNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByMiddleNameReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDataByType">
+    <complexType>
+     <sequence>
+      <element name="account_type" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDataByTypeResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountDataByTypeReturn" type="tns1:AccountArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByAccountID">
+    <complexType>
+     <sequence>
+      <element name="account_id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByAccountIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getTransactionDataByAccountIDReturn" type="tns1:TransactionArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByDescription">
+    <complexType>
+     <sequence>
+      <element name="description" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTransactionDataByDescriptionResponse">
+    <complexType>
+     <sequence>
+      <element name="getTransactionDataByDescriptionReturn" type="tns1:TransactionArray"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCustomerAccount">
+    <complexType>
+     <sequence>
+      <element name="customer_id" type="xsd:int"/>
+      <element name="account_id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCustomerAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="createCustomerAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByPhone">
+    <complexType>
+     <sequence>
+      <element name="phone" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerDataByPhoneResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerDataByPhoneReturn" type="tns1:CustomerArray"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
   <schema elementFormDefault="qualified" targetNamespace="http://model.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://service.com"/>
-   <complexType name="AccountData">
+   <complexType name="TransactionData">
     <sequence>
      <element name="account_id" type="xsd:int"/>
-     <element name="account_type" nillable="true" type="xsd:string"/>
+     <element name="amount" type="xsd:float"/>
      <element name="balance" type="xsd:float"/>
+     <element name="date" nillable="true" type="xsd:string"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="transaction_id" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="TransactionArray">
+    <sequence>
+     <element name="transactionDataArray" nillable="true" type="impl:ArrayOf_tns1_TransactionData"/>
     </sequence>
    </complexType>
    <complexType name="CustomerData">
@@ -471,35 +479,16 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element name="zip" nillable="true" type="xsd:string"/>
     </sequence>
    </complexType>
-   <complexType name="TransactionData">
+   <complexType name="AccountData">
     <sequence>
      <element name="account_id" type="xsd:int"/>
-     <element name="amount" type="xsd:float"/>
+     <element name="account_type" nillable="true" type="xsd:string"/>
      <element name="balance" type="xsd:float"/>
-     <element name="date" nillable="true" type="xsd:string"/>
-     <element name="description" nillable="true" type="xsd:string"/>
-     <element name="transaction_id" type="xsd:int"/>
-    </sequence>
-   </complexType>
-   <complexType name="TransactionArray">
-    <sequence>
-     <element name="transactionDataArray" nillable="true" type="impl:ArrayOf_tns1_TransactionData"/>
-    </sequence>
-   </complexType>
-   <complexType name="CustomerArray">
-    <sequence>
-     <element name="customerDataArray" nillable="true" type="impl:ArrayOf_tns1_CustomerData"/>
     </sequence>
    </complexType>
    <complexType name="AccountArray">
     <sequence>
      <element name="accountDataArray" nillable="true" type="impl:ArrayOf_tns1_AccountData"/>
-    </sequence>
-   </complexType>
-   <complexType name="CustomerAccountArray">
-    <sequence>
-     <element name="accountDataArray" nillable="true" type="impl:ArrayOf_tns1_AccountData"/>
-     <element name="customer_id" type="xsd:int"/>
     </sequence>
    </complexType>
    <complexType name="AccountCustomerArray">
@@ -508,24 +497,19 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element name="customerDataArray" nillable="true" type="impl:ArrayOf_tns1_CustomerData"/>
     </sequence>
    </complexType>
+   <complexType name="CustomerArray">
+    <sequence>
+     <element name="customerDataArray" nillable="true" type="impl:ArrayOf_tns1_CustomerData"/>
+    </sequence>
+   </complexType>
+   <complexType name="CustomerAccountArray">
+    <sequence>
+     <element name="accountDataArray" nillable="true" type="impl:ArrayOf_tns1_AccountData"/>
+     <element name="customer_id" type="xsd:int"/>
+    </sequence>
+   </complexType>
   </schema>
  </wsdl:types>
-
-   <wsdl:message name="getByAmountResponse">
-
-      <wsdl:part element="impl:getByAmountResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="getByTimeStampResponse">
-
-      <wsdl:part element="impl:getByTimeStampResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
 
    <wsdl:message name="doWithdrawResponse">
 
@@ -583,14 +567,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getByAccountIDRequest">
-
-      <wsdl:part element="impl:getByAccountID" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="getCustomerDataByZipRequest">
 
       <wsdl:part element="impl:getCustomerDataByZip" name="parameters">
@@ -623,17 +599,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getCustomerDataByIDResponse">
+   <wsdl:message name="getTransactionDataByBalanceResponse">
 
-      <wsdl:part element="impl:getCustomerDataByIDResponse" name="parameters">
+      <wsdl:part element="impl:getTransactionDataByBalanceResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="getByAccountIDResponse">
+   <wsdl:message name="getCustomerDataByIDResponse">
 
-      <wsdl:part element="impl:getByAccountIDResponse" name="parameters">
+      <wsdl:part element="impl:getCustomerDataByIDResponse" name="parameters">
 
       </wsdl:part>
 
@@ -658,6 +634,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="doFundsTransferResponse">
 
       <wsdl:part element="impl:doFundsTransferResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTransactionDataByAmountResponse">
+
+      <wsdl:part element="impl:getTransactionDataByAmountResponse" name="parameters">
 
       </wsdl:part>
 
@@ -703,9 +687,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getCustomerDataByZipResponse">
+   <wsdl:message name="getTransactionDataByDescriptionRequest">
 
-      <wsdl:part element="impl:getCustomerDataByZipResponse" name="parameters">
+      <wsdl:part element="impl:getTransactionDataByDescription" name="parameters">
 
       </wsdl:part>
 
@@ -719,9 +703,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getByDescriptionRequest">
+   <wsdl:message name="getCustomerDataByZipResponse">
 
-      <wsdl:part element="impl:getByDescription" name="parameters">
+      <wsdl:part element="impl:getCustomerDataByZipResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTransactionDataByAccountIDRequest">
+
+      <wsdl:part element="impl:getTransactionDataByAccountID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTransactionDataByDescriptionResponse">
+
+      <wsdl:part element="impl:getTransactionDataByDescriptionResponse" name="parameters">
 
       </wsdl:part>
 
@@ -775,9 +775,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getByBalanceRequest">
+   <wsdl:message name="getTransactionDataByTimeStampRequest">
 
-      <wsdl:part element="impl:getByBalance" name="parameters">
+      <wsdl:part element="impl:getTransactionDataByTimeStamp" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTransactionDataByTimeStampResponse">
+
+      <wsdl:part element="impl:getTransactionDataByTimeStampResponse" name="parameters">
 
       </wsdl:part>
 
@@ -807,25 +815,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getByDescriptionResponse">
-
-      <wsdl:part element="impl:getByDescriptionResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="getCustomerDataByFirstNameRequest">
 
       <wsdl:part element="impl:getCustomerDataByFirstName" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="getByAmountRequest">
-
-      <wsdl:part element="impl:getByAmount" name="parameters">
 
       </wsdl:part>
 
@@ -847,17 +839,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getAccountDataByIDRequest">
+   <wsdl:message name="getAllCustomerDataRequest">
 
-      <wsdl:part element="impl:getAccountDataByID" name="parameters">
+      <wsdl:part element="impl:getAllCustomerData" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="getAllCustomerDataRequest">
+   <wsdl:message name="getAccountDataByIDRequest">
 
-      <wsdl:part element="impl:getAllCustomerData" name="parameters">
+      <wsdl:part element="impl:getAccountDataByID" name="parameters">
 
       </wsdl:part>
 
@@ -871,14 +863,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getByTimeStampRequest">
-
-      <wsdl:part element="impl:getByTimeStamp" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="getAccountDataByTypeRequest">
 
       <wsdl:part element="impl:getAccountDataByType" name="parameters">
@@ -887,9 +871,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getByBalanceResponse">
+   <wsdl:message name="getTransactionDataByAccountIDResponse">
 
-      <wsdl:part element="impl:getByBalanceResponse" name="parameters">
+      <wsdl:part element="impl:getTransactionDataByAccountIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTransactionDataByBalanceRequest">
+
+      <wsdl:part element="impl:getTransactionDataByBalance" name="parameters">
 
       </wsdl:part>
 
@@ -911,17 +903,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getCustomerDataByPhoneResponse">
+   <wsdl:message name="getCustomerDataByLastNameResponse">
 
-      <wsdl:part element="impl:getCustomerDataByPhoneResponse" name="parameters">
+      <wsdl:part element="impl:getCustomerDataByLastNameResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="getCustomerDataByLastNameResponse">
+   <wsdl:message name="getCustomerDataByPhoneResponse">
 
-      <wsdl:part element="impl:getCustomerDataByLastNameResponse" name="parameters">
+      <wsdl:part element="impl:getCustomerDataByPhoneResponse" name="parameters">
 
       </wsdl:part>
 
@@ -983,6 +975,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getTransactionDataByAmountRequest">
+
+      <wsdl:part element="impl:getTransactionDataByAmount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="createTransactionResponse">
 
       <wsdl:part element="impl:createTransactionResponse" name="parameters">
@@ -1009,54 +1009,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="BankService">
 
-      <wsdl:operation name="createAccount">
-
-         <wsdl:input message="impl:createAccountRequest" name="createAccountRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createAccountResponse" name="createAccountResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createCustomer">
-
-         <wsdl:input message="impl:createCustomerRequest" name="createCustomerRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createCustomerResponse" name="createCustomerResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getByTimeStamp">
-
-         <wsdl:input message="impl:getByTimeStampRequest" name="getByTimeStampRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getByTimeStampResponse" name="getByTimeStampResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getByAmount">
-
-         <wsdl:input message="impl:getByAmountRequest" name="getByAmountRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getByAmountResponse" name="getByAmountResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="doDeposit">
 
          <wsdl:input message="impl:doDepositRequest" name="doDepositRequest">
@@ -1064,30 +1016,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:doDepositResponse" name="doDepositResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getByAccountID">
-
-         <wsdl:input message="impl:getByAccountIDRequest" name="getByAccountIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getByAccountIDResponse" name="getByAccountIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="doFundsTransfer">
-
-         <wsdl:input message="impl:doFundsTransferRequest" name="doFundsTransferRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:doFundsTransferResponse" name="doFundsTransferResponse">
 
        </wsdl:output>
 
@@ -1105,37 +1033,49 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getByDescription">
+      <wsdl:operation name="doFundsTransfer">
 
-         <wsdl:input message="impl:getByDescriptionRequest" name="getByDescriptionRequest">
+         <wsdl:input message="impl:doFundsTransferRequest" name="doFundsTransferRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getByDescriptionResponse" name="getByDescriptionResponse">
+         <wsdl:output message="impl:doFundsTransferResponse" name="doFundsTransferResponse">
 
        </wsdl:output>
 
       </wsdl:operation>
 
-      <wsdl:operation name="getByBalance">
+      <wsdl:operation name="createCustomer">
 
-         <wsdl:input message="impl:getByBalanceRequest" name="getByBalanceRequest">
+         <wsdl:input message="impl:createCustomerRequest" name="createCustomerRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getByBalanceResponse" name="getByBalanceResponse">
+         <wsdl:output message="impl:createCustomerResponse" name="createCustomerResponse">
 
        </wsdl:output>
 
       </wsdl:operation>
 
-      <wsdl:operation name="getCustomerDataByState">
+      <wsdl:operation name="createAccount">
 
-         <wsdl:input message="impl:getCustomerDataByStateRequest" name="getCustomerDataByStateRequest">
+         <wsdl:input message="impl:createAccountRequest" name="createAccountRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getCustomerDataByStateResponse" name="getCustomerDataByStateResponse">
+         <wsdl:output message="impl:createAccountResponse" name="createAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByBalance">
+
+         <wsdl:input message="impl:getTransactionDataByBalanceRequest" name="getTransactionDataByBalanceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTransactionDataByBalanceResponse" name="getTransactionDataByBalanceResponse">
 
        </wsdl:output>
 
@@ -1153,150 +1093,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getAccountDataByID">
-
-         <wsdl:input message="impl:getAccountDataByIDRequest" name="getAccountDataByIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAccountDataByIDResponse" name="getAccountDataByIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createCustomerAccount">
-
-         <wsdl:input message="impl:createCustomerAccountRequest" name="createCustomerAccountRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createCustomerAccountResponse" name="createCustomerAccountResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByZip">
-
-         <wsdl:input message="impl:getCustomerDataByZipRequest" name="getCustomerDataByZipRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByZipResponse" name="getCustomerDataByZipResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByPhone">
-
-         <wsdl:input message="impl:getCustomerDataByPhoneRequest" name="getCustomerDataByPhoneRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByPhoneResponse" name="getCustomerDataByPhoneResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByID">
-
-         <wsdl:input message="impl:getCustomerDataByIDRequest" name="getCustomerDataByIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByIDResponse" name="getCustomerDataByIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByFirstName">
-
-         <wsdl:input message="impl:getCustomerDataByFirstNameRequest" name="getCustomerDataByFirstNameRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByFirstNameResponse" name="getCustomerDataByFirstNameResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllCustomerData">
-
-         <wsdl:input message="impl:getAllCustomerDataRequest" name="getAllCustomerDataRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAllCustomerDataResponse" name="getAllCustomerDataResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByMiddleName">
-
-         <wsdl:input message="impl:getCustomerDataByMiddleNameRequest" name="getCustomerDataByMiddleNameRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByMiddleNameResponse" name="getCustomerDataByMiddleNameResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByStreet">
-
-         <wsdl:input message="impl:getCustomerDataByStreetRequest" name="getCustomerDataByStreetRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByStreetResponse" name="getCustomerDataByStreetResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByEmail">
-
-         <wsdl:input message="impl:getCustomerDataByEmailRequest" name="getCustomerDataByEmailRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByEmailResponse" name="getCustomerDataByEmailResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByLastName">
-
-         <wsdl:input message="impl:getCustomerDataByLastNameRequest" name="getCustomerDataByLastNameRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByLastNameResponse" name="getCustomerDataByLastNameResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByCity">
-
-         <wsdl:input message="impl:getCustomerDataByCityRequest" name="getCustomerDataByCityRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDataByCityResponse" name="getCustomerDataByCityResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getAccountDataByBalance">
 
          <wsdl:input message="impl:getAccountDataByBalanceRequest" name="getAccountDataByBalanceRequest">
@@ -1304,54 +1100,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:getAccountDataByBalanceResponse" name="getAccountDataByBalanceResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAccountDataByType">
-
-         <wsdl:input message="impl:getAccountDataByTypeRequest" name="getAccountDataByTypeRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAccountDataByTypeResponse" name="getAccountDataByTypeResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAccountDetailsByCustomerID">
-
-         <wsdl:input message="impl:getAccountDetailsByCustomerIDRequest" name="getAccountDetailsByCustomerIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAccountDetailsByCustomerIDResponse" name="getAccountDetailsByCustomerIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDetailsByAccountID">
-
-         <wsdl:input message="impl:getCustomerDetailsByAccountIDRequest" name="getCustomerDetailsByAccountIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getCustomerDetailsByAccountIDResponse" name="getCustomerDetailsByAccountIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllAccountData">
-
-         <wsdl:input message="impl:getAllAccountDataRequest" name="getAllAccountDataRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getAllAccountDataResponse" name="getAllAccountDataResponse">
 
        </wsdl:output>
 
@@ -1369,6 +1117,66 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="getCustomerDetailsByAccountID">
+
+         <wsdl:input message="impl:getCustomerDetailsByAccountIDRequest" name="getCustomerDetailsByAccountIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDetailsByAccountIDResponse" name="getCustomerDetailsByAccountIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByStreet">
+
+         <wsdl:input message="impl:getCustomerDataByStreetRequest" name="getCustomerDataByStreetRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByStreetResponse" name="getCustomerDataByStreetResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByID">
+
+         <wsdl:input message="impl:getCustomerDataByIDRequest" name="getCustomerDataByIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByIDResponse" name="getCustomerDataByIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDetailsByCustomerID">
+
+         <wsdl:input message="impl:getAccountDetailsByCustomerIDRequest" name="getAccountDetailsByCustomerIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAccountDetailsByCustomerIDResponse" name="getAccountDetailsByCustomerIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByTimeStamp">
+
+         <wsdl:input message="impl:getTransactionDataByTimeStampRequest" name="getTransactionDataByTimeStampRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTransactionDataByTimeStampResponse" name="getTransactionDataByTimeStampResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="getAllTransactionData">
 
          <wsdl:input message="impl:getAllTransactionDataRequest" name="getAllTransactionDataRequest">
@@ -1381,83 +1189,203 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="getAllCustomerData">
+
+         <wsdl:input message="impl:getAllCustomerDataRequest" name="getAllCustomerDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllCustomerDataResponse" name="getAllCustomerDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByAmount">
+
+         <wsdl:input message="impl:getTransactionDataByAmountRequest" name="getTransactionDataByAmountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTransactionDataByAmountResponse" name="getTransactionDataByAmountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllAccountData">
+
+         <wsdl:input message="impl:getAllAccountDataRequest" name="getAllAccountDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllAccountDataResponse" name="getAllAccountDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByLastName">
+
+         <wsdl:input message="impl:getCustomerDataByLastNameRequest" name="getCustomerDataByLastNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByLastNameResponse" name="getCustomerDataByLastNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByEmail">
+
+         <wsdl:input message="impl:getCustomerDataByEmailRequest" name="getCustomerDataByEmailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByEmailResponse" name="getCustomerDataByEmailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByCity">
+
+         <wsdl:input message="impl:getCustomerDataByCityRequest" name="getCustomerDataByCityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByCityResponse" name="getCustomerDataByCityResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByZip">
+
+         <wsdl:input message="impl:getCustomerDataByZipRequest" name="getCustomerDataByZipRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByZipResponse" name="getCustomerDataByZipResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByState">
+
+         <wsdl:input message="impl:getCustomerDataByStateRequest" name="getCustomerDataByStateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByStateResponse" name="getCustomerDataByStateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDataByID">
+
+         <wsdl:input message="impl:getAccountDataByIDRequest" name="getAccountDataByIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAccountDataByIDResponse" name="getAccountDataByIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByFirstName">
+
+         <wsdl:input message="impl:getCustomerDataByFirstNameRequest" name="getCustomerDataByFirstNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByFirstNameResponse" name="getCustomerDataByFirstNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByMiddleName">
+
+         <wsdl:input message="impl:getCustomerDataByMiddleNameRequest" name="getCustomerDataByMiddleNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByMiddleNameResponse" name="getCustomerDataByMiddleNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDataByType">
+
+         <wsdl:input message="impl:getAccountDataByTypeRequest" name="getAccountDataByTypeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAccountDataByTypeResponse" name="getAccountDataByTypeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByAccountID">
+
+         <wsdl:input message="impl:getTransactionDataByAccountIDRequest" name="getTransactionDataByAccountIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTransactionDataByAccountIDResponse" name="getTransactionDataByAccountIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByDescription">
+
+         <wsdl:input message="impl:getTransactionDataByDescriptionRequest" name="getTransactionDataByDescriptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTransactionDataByDescriptionResponse" name="getTransactionDataByDescriptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCustomerAccount">
+
+         <wsdl:input message="impl:createCustomerAccountRequest" name="createCustomerAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createCustomerAccountResponse" name="createCustomerAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByPhone">
+
+         <wsdl:input message="impl:getCustomerDataByPhoneRequest" name="getCustomerDataByPhoneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerDataByPhoneResponse" name="getCustomerDataByPhoneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="BankServiceSoapBinding" type="impl:BankService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="createAccount">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createAccountRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createAccountResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createCustomer">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createCustomerRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createCustomerResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getByTimeStamp">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getByTimeStampRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getByTimeStampResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getByAmount">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getByAmountRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getByAmountResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name="doDeposit">
 
@@ -1470,42 +1398,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="doDepositResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getByAccountID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getByAccountIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getByAccountIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="doFundsTransfer">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="doFundsTransferRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="doFundsTransferResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -1531,17 +1423,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getByDescription">
+      <wsdl:operation name="doFundsTransfer">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getByDescriptionRequest">
+         <wsdl:input name="doFundsTransferRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getByDescriptionResponse">
+         <wsdl:output name="doFundsTransferResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -1549,17 +1441,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getByBalance">
+      <wsdl:operation name="createCustomer">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getByBalanceRequest">
+         <wsdl:input name="createCustomerRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getByBalanceResponse">
+         <wsdl:output name="createCustomerResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -1567,17 +1459,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getCustomerDataByState">
+      <wsdl:operation name="createAccount">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getCustomerDataByStateRequest">
+         <wsdl:input name="createAccountRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getCustomerDataByStateResponse">
+         <wsdl:output name="createAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByBalance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTransactionDataByBalanceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTransactionDataByBalanceResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -1603,222 +1513,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getAccountDataByID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAccountDataByIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAccountDataByIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createCustomerAccount">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createCustomerAccountRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createCustomerAccountResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByZip">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByZipRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByZipResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByPhone">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByPhoneRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByPhoneResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByFirstName">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByFirstNameRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByFirstNameResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllCustomerData">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAllCustomerDataRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAllCustomerDataResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByMiddleName">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByMiddleNameRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByMiddleNameResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByStreet">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByStreetRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByStreetResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByEmail">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByEmailRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByEmailResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByLastName">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByLastNameRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByLastNameResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDataByCity">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDataByCityRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDataByCityResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getAccountDataByBalance">
 
          <wsdlsoap:operation soapAction=""/>
@@ -1830,78 +1524,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getAccountDataByBalanceResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAccountDataByType">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAccountDataByTypeRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAccountDataByTypeResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAccountDetailsByCustomerID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAccountDetailsByCustomerIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAccountDetailsByCustomerIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCustomerDetailsByAccountID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCustomerDetailsByAccountIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCustomerDetailsByAccountIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getAllAccountData">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getAllAccountDataRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getAllAccountDataResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -1927,6 +1549,96 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="getCustomerDetailsByAccountID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDetailsByAccountIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDetailsByAccountIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByStreet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByStreetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByStreetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDetailsByCustomerID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAccountDetailsByCustomerIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccountDetailsByCustomerIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByTimeStamp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTransactionDataByTimeStampRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTransactionDataByTimeStampResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="getAllTransactionData">
 
          <wsdlsoap:operation soapAction=""/>
@@ -1938,6 +1650,294 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getAllTransactionDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCustomerData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllCustomerDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllCustomerDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByAmount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTransactionDataByAmountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTransactionDataByAmountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllAccountData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllAccountDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllAccountDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByLastName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByLastNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByLastNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByEmail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByEmailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByEmailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByCity">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByCityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByCityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByZip">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByZipRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByZipResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByState">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByStateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByStateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDataByID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAccountDataByIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccountDataByIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByFirstName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByFirstNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByFirstNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByMiddleName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByMiddleNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByMiddleNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDataByType">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAccountDataByTypeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccountDataByTypeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByAccountID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTransactionDataByAccountIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTransactionDataByAccountIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTransactionDataByDescription">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTransactionDataByDescriptionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTransactionDataByDescriptionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCustomerAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createCustomerAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createCustomerAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerDataByPhone">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerDataByPhoneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerDataByPhoneResponse">
 
             <wsdlsoap:body use="literal"/>
 

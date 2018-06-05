@@ -82,7 +82,7 @@
 				<td><input type="text" name="balance"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button type="submit" >Deposit</button></td>
+				<td colspan="2"><button type="submit" >Create Account</button></td>
 			</tr>
 		</table>
 	</form>
