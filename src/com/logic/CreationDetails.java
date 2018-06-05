@@ -42,10 +42,10 @@ public class CreationDetails {
 
 		} catch (SQLException e) {
 			System.out.println("Exception : Customer Creation" + e.getMessage());
-			return customerData;
+			return ErrorStatus.errorCustomerData;
 		} catch (Exception e) {
 			System.out.println("Exception : Customer Creation" + e.getMessage());
-			return customerData;
+			return ErrorStatus.errorCustomerData;
 		}
 		return customerData;
 	}
@@ -81,10 +81,10 @@ public class CreationDetails {
 
 		} catch (SQLException e) {
 			System.out.println("Exception : Account Creation" + e.getMessage());
-			return accountData;
+			return ErrorStatus.errorAccountData;
 		} catch (Exception e) {
 			System.out.println("Exception : Account Creation" + e.getMessage());
-			return accountData;
+			return ErrorStatus.errorAccountData;
 		}
 		return accountData;
 	}
@@ -121,10 +121,10 @@ public class CreationDetails {
 
 		} catch (SQLException e) {
 			System.out.println("Exception : Transaction Creation" + e.getMessage());
-			return transactionData;
+			return ErrorStatus.errorTransactionData;
 		} catch (Exception e) {
 			System.out.println("Exception : Transaction Creation" + e.getMessage());
-			return transactionData;
+			return ErrorStatus.errorTransactionData;
 		}
 		return transactionData;
 	}
@@ -134,8 +134,8 @@ public class CreationDetails {
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
-		CustomerData customerData = null;
-		AccountData accountData = null;
+		CustomerData customerData = ErrorStatus.errorCustomerData;
+		AccountData accountData = ErrorStatus.errorAccountData;
 		CustomerAccountMapping caObject = new CustomerAccountMapping(customer_id, account_id, customerData, accountData);
 
 		try {
@@ -208,10 +208,10 @@ public class CreationDetails {
 
 		} catch (SQLException e) {
 			System.out.println("Exception : Account Creation" + e.getMessage());
-			return caObject;
+			return ErrorStatus.errorCustomerAccountMapping;
 		} catch (Exception e) {
 			System.out.println("Exception : Account Creation" + e.getMessage());
-			return caObject;
+			return ErrorStatus.errorCustomerAccountMapping;
 		}
 		return caObject;
 

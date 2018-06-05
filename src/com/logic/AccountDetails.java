@@ -37,10 +37,10 @@ public class AccountDetails {
 			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Exception : Account getByID" + e.getMessage());
-			return accountData;
+			return ErrorStatus.errorAccountData;
 		} catch (Exception e) {
 			System.out.println("Exception : Account getByID" + e.getMessage());
-			return accountData;
+			return ErrorStatus.errorAccountData;
 		}
 		return accountData;
 	}
@@ -76,9 +76,11 @@ public class AccountDetails {
 			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Exception : Account getByType" + e.getMessage());
+			accountList.add(ErrorStatus.errorAccountData);
 			return accountList;
 		} catch (Exception e) {
 			System.out.println("Exception : Account getByType" + e.getMessage());
+			accountList.add(ErrorStatus.errorAccountData);
 			return accountList;
 		}
 		return accountList;
@@ -115,9 +117,11 @@ public class AccountDetails {
 			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Exception : Account getByBalance" + e.getMessage());
+			accountList.add(ErrorStatus.errorAccountData);
 			return accountList;
 		} catch (Exception e) {
 			System.out.println("Exception : Account getByBalance" + e.getMessage());
+			accountList.add(ErrorStatus.errorAccountData);
 			return accountList;
 		}
 		return accountList;
@@ -154,9 +158,11 @@ public class AccountDetails {
 			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Exception : Account getAll" + e.getMessage());
+			accountList.add(ErrorStatus.errorAccountData);
 			return accountList;
 		} catch (Exception e) {
 			System.out.println("Exception : Account getAll" + e.getMessage());
+			accountList.add(ErrorStatus.errorAccountData);
 			return accountList;
 		}
 		return accountList;

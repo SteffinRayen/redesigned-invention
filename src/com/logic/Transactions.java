@@ -33,6 +33,7 @@ public class Transactions {
 			sql = "select balance from account where account_id ="+account_id;
 			resultSet = statement.executeQuery(sql);
 			System.out.println(sql);
+			
 			if (!resultSet.next())
 				return null;
 			else
@@ -155,6 +156,11 @@ public class Transactions {
 		
 		TransactionData data = null;
 		List<TransactionData> dataList = new ArrayList<TransactionData>();
+		
+		if (fromAccountID == toAccountID) {
+			dataList.add(ErrorStatus.errorTransactionData);
+			return dataList;
+		}
 		
 		data = withdraw(fromAccountID, amount);
 		dataList.add(data);

@@ -15,6 +15,11 @@ public class TransactionArray {
 		this.transactionDataArray = transactionDataArray;
 	}
 
+	public TransactionArray(TransactionData transactionData) {
+		// TODO Auto-generated constructor stub
+		this.transactionDataArray[0] = transactionData;
+	}
+
 	public TransactionData[] getTransactionDataArray() {
 		return transactionDataArray;
 	}

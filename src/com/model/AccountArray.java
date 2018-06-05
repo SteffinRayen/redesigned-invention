@@ -14,6 +14,11 @@ public class AccountArray {
 		this.accountDataArray = accountDataArray;
 	}
 
+	public AccountArray(AccountData accountData) {
+		// TODO Auto-generated constructor stub
+		this.accountDataArray[0] = accountData;
+	}
+
 	public AccountData[] getAccountDataArray() {
 		return accountDataArray;
 	}
