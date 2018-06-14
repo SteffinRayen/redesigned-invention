@@ -106,39 +106,47 @@ public class Transactions {
 			else {
 				balance = resultSet.getFloat("balance");
 				if (balance < amount) {
-					
 					description = "Insuficient Funds";
-				} else {
+				} else if (balance - amount < 50) {
+					balance -= amount;
+					description = "Min Balance";
+				}else {
 					balance -= amount;
 					description = "Withdrawn "+amount;
 				}
 			}
 			data = new TransactionData(
-				SQLQueries.findTotal("transaction")+3001,
-				account_id,
-				now.toString(),
-				amount,
-				balance,
-				description
-			);
+					SQLQueries.findTotal("transaction")+3001,
+					account_id,
+					now.toString(),
+					amount,
+					balance,
+					description
+				);
+			if (description.equals("Insuficient Funds")) {
+				
+			} else {
+				sql = "update account set balance = "+ data.getBalance() +"where account_id = "+data.getAccount_id();
+				statement.executeUpdate(sql);
+				System.out.println(sql);
+
+				// insert transaction 
+				sql = "insert into transaction values"
+						+ "("
+						+ "'" + data.getTransaction_id() + "',"
+						+ "'" + data.getAccount_id() + "',"
+						+ "'" + now + "',"
+						+ "'" + data.getAmount() + "',"
+						+ "'" + data.getBalance() + "',"
+						+ "'" + data.getDescription() + "'"
+						+ ")";
+				statement.executeUpdate(sql);
+				System.out.println(sql);
+			}
+			
 			System.out.println(data.displayAll());
 			// update balance in account
-			sql = "update account set balance = "+ data.getBalance() +"where account_id = "+data.getAccount_id();
-			statement.executeUpdate(sql);
-			System.out.println(sql);
-
-			// insert transaction 
-			sql = "insert into transaction values"
-					+ "("
-					+ "'" + data.getTransaction_id() + "',"
-					+ "'" + data.getAccount_id() + "',"
-					+ "'" + now + "',"
-					+ "'" + data.getAmount() + "',"
-					+ "'" + data.getBalance() + "',"
-					+ "'" + data.getDescription() + "'"
-					+ ")";
-			statement.executeUpdate(sql);
-			System.out.println(sql);
+			
 			resultSet.close();
 			statement.close();
 			connection.close();
